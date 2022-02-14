@@ -1,0 +1,179 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+  <meta charset="UTF-8">
+  <title></title>
+
+  <link th:href="@{/node_modules/bootstrap/dist/css/bootstrap.css}" rel="stylesheet">
+  <link th:href="@{/node_modules/mdb-ui-kit/css/mdb.min.css}" rel="stylesheet">
+  <link th:href="@{/node_modules/font-awesome/css/font-awesome.css}" rel="stylesheet">
+  <link th:href="@{/css/estilosAdministrador.css}" rel="stylesheet">
+  <link th:href="@{/css/navLateral.css}" rel="stylesheet">
+</head>
+<body>
+<div th:include="administardor/templateAdministrador.html::header"></div>
+
+<div class="container-fluid">
+  <div class="card">
+    <div class="card-header">
+      Usuarios
+    </div>
+    <div class="card-body">
+      <h5 class="card-title">Special title treatment</h5>
+      <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+      <button type="button" class="btn btn-primary" data-bs-toggle="modal" data-bs-target="#exampleModal" data-bs-whatever="@mdo">Agregar Usuario</button>
+    </div>
+  </div>
+</div>
+
+<div class="modal fade" id="exampleModal" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog modal-lg">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">New message</h5>
+        <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+      </div>
+      <div class="modal-body">
+        <div class="row">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="nameUser" class="form-control" />
+              <label class="form-label" for="nameUser">Nombre</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="email" id="paPaterno" class="form-control" />
+              <label class="form-label" for="paPaterno">Apellido Paterno</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="paMaterno" class="form-control" />
+              <label class="form-label" for="paMaterno">Apellido Materno</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="edadUser" class="form-control" />
+              <label class="form-label" for="edadUser">Edad</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="email" id="telefonoUser" class="form-control" />
+              <label class="form-label" for="telefonoUser">Telefono</label>
+            </div>
+          </div>
+          <div class="col">
+            <select class="form-select" aria-label="Default select example">
+              <option selected>Genero</option>
+              <option value="M">Masculino</option>
+              <option value="F">Femenino</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <select class="form-select" id="select-pais" aria-label="Default select example">
+              <option selected disabled>Pais</option>
+              <option th:each="pa: ${listaPaises}" th:value="${pa.idPais}" th:text="${pa.pais}"></option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-select" id="select-estado" aria-label="Default select example">
+              <option selected disabled>Estado</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <select class="form-select" id="select-municipio" aria-label="Default select example">
+              <option selected>Municipio</option>
+            </select>
+          </div>
+          <div class="col">
+            <select class="form-select" id="select-colonia" aria-label="Default select example">
+              <option selected>Colonia</option>
+            </select>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="calleUser" class="form-control" />
+              <label class="form-label" for="calleUser">Calle</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="email" id="numeroUser" class="form-control" />
+              <label class="form-label" for="numeroUser">Numero</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="email" id="postalUser" class="form-control" />
+              <label class="form-label" for="postalUser">Codigo Postal</label>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <div class="form-outline">
+              <input type="text" id="user" class="form-control" />
+              <label class="form-label" for="user">Usuario</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <input type="email" id="contrasenia" class="form-control" />
+              <label class="form-label" for="contrasenia">Contrasenia</label>
+            </div>
+          </div>
+          <div class="col">
+            <div class="form-outline">
+              <select class="form-select" aria-label="Default select example">
+                <option selected>Perfil Usuario</option>
+              </select>
+            </div>
+          </div>
+        </div>
+        <hr />
+        <div class="row">
+          <div class="col">
+            <div class="form-check form-switch">
+              <input class="form-check-input" type="checkbox" id="form11Example4" checked />
+              <label class="form-check-label" for="form11Example4">
+                Usuario Activo
+              </label>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Send message</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div th:include="administardor/templateAdministrador.html::footer"></div>
+
+<script th:src="@{/node_modules/bootstrap/dist/js/bootstrap.js}"></script>
+<script th:src="@{/node_modules/mdb-ui-kit/js/mdb.min.js}"></script>
+<script th:src="@{/js/usuario.js}" type="module"></script>
+<script th:src="@{/js/navLateral.js}"></script>
+
+
+</body>
+</html>

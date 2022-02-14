@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link th:href="@{/node_modules/bootstrap/dist/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{/node_modules/mdb-ui-kit/css/mdb.min.css}" rel="stylesheet">
+    <link th:href="@{/node_modules/font-awesome/css/font-awesome.css}" rel="stylesheet">
+    <link th:href="@{/css/estilosAdministrador.css}" rel="stylesheet">
+    <link th:href="@{/css/navLateral.css}" rel="stylesheet">
+</head>
+<body>
+<div th:include="administardor/templateAdministrador.html::header"></div>
+
+<div class="container-fluid">
+    <div class="card">
+        <div class="card-header">
+            DashBoard
+        </div>
+        <div class="card-body">
+            <h5 class="card-title">Special title treatment</h5>
+            <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+            <a href="#" class="btn btn-primary">Go somewhere</a>
+        </div>
+    </div>
+</div>
+
+
+<div th:include="administardor/templateAdministrador.html::footer"></div>
+
+<script th:src="@{/node_modules/bootstrap/dist/js/bootstrap.js}"></script>
+<script th:src="@{/node_modules/mdb-ui-kit/js/mdb.min.js}"></script>
+<script th:src="@{/js/navLateral.js}"></script>
+
+
+</body>
+</html>

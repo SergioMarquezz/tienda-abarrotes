@@ -1,0 +1,12 @@
+.navarAdministrador, .div-texto-menu{
+  background-color: #3c8dbc !important;
+}
+.div-texto-menu{
+  height: 4rem;
+}
+.botonMenu:hover{
+  cursor: pointer;
+}
+.menu-principal > li:hover{
+  background-color: #00a65a;
+}

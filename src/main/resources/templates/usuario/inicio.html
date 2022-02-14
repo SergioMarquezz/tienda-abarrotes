@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="es" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title></title>
+
+    <link th:href="@{node_modules/bootstrap/dist/css/bootstrap.css}" rel="stylesheet">
+    <link th:href="@{node_modules/mdb-ui-kit/css/mdb.min.css}" rel="stylesheet">
+    <link th:href="@{node_modules/font-awesome/css/font-awesome.css}" rel="stylesheet">
+    <link th:href="@{css/estilosInicio.css}" rel="stylesheet">
+</head>
+<body>
+    <div th:include="usuario/templateUsuario.html::header"></div>
+
+    <div class="container-fluid">
+        <!-- Carousel wrapper -->
+        <div id="carouselBasicExample" class="carousel slide carousel-fade w-100" data-mdb-ride="carousel">
+            <!-- Indicators -->
+            <div class="carousel-indicators">
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="0"
+                        class="active" aria-current="true" aria-label="Slide 1">
+                </button>
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="1"
+                        aria-label="Slide 2">
+                </button>
+                <button type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide-to="2"
+                        aria-label="Slide 3"></button>
+            </div>
+            <!-- Inner -->
+            <div class="carousel-inner">
+                <!-- Single item -->
+                <div class="carousel-item active">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(15).webp" class="d-block w-100" alt="Sunset Over the City"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>First slide label</h5>
+                        <p>Nulla vitae elit libero, a pharetra augue mollis interdum.</p>
+                    </div>
+                </div>
+                <!-- Single item -->
+                <div class="carousel-item">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(22).webp" class="d-block w-100" alt="Canyon at Nigh"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Second slide label</h5>
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
+                    </div>
+                </div>
+                <!-- Single item -->
+                <div class="carousel-item">
+                    <img src="https://mdbcdn.b-cdn.net/img/Photos/Slides/img%20(23).webp" class="d-block w-100" alt="Cliff Above a Stormy Sea"/>
+                    <div class="carousel-caption d-none d-md-block">
+                        <h5>Third slide label</h5>
+                        <p>Praesent commodo cursus magna, vel scelerisque nisl consectetur.</p>
+                    </div>
+                </div>
+            </div>
+            <!-- Inner -->
+            <!-- Controls -->
+            <button class="carousel-control-prev" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="prev">
+                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Previous</span>
+            </button>
+            <button class="carousel-control-next" type="button" data-mdb-target="#carouselBasicExample" data-mdb-slide="next">
+                <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                <span class="visually-hidden">Next</span>
+            </button>
+        </div>
+        <!-- Carousel wrapper -->
+
+        <!-- Buttons trigger collapse -->
+         <button class="btn text-dark font-weight-bold text-capitalize w-25 mt-3 btnProductos" type="button" data-mdb-toggle="collapse"
+                 data-mdb-target="#collapseExample" aria-expanded="false" aria-controls="collapseExample">
+             <span class="me-5"><i class="fa fa-bars"></i></span> Productos <span class="ms-5"><i class="fa fa-angle-down"></i></span>
+         </button>
+
+         <!-- Collapsed content -->
+        <div class="collapse mb-3" id="collapseExample">
+             <div class="row">
+                 <div class="col-3">
+                     <div class="nav flex-column nav-tabs listProductos" id="v-tabs-tab" role="tablist" aria-orientation="vertical" th:each="ca: ${listaCategorias}">
+                         <a class="nav-link border text-start text-dark tabs-categorias" th:id="'tab'+${ca.idCategoria}" data-mdb-toggle="tab" th:href="'#v-tab'+${ca.idCategoria}" role="tab" aria-selected="false" th:text="${ca.categoria}"></a>
+                     </div>
+                 </div>
+                 <div class="col-9">
+                     <div class="tab-content" id="v-tabs-tabContent">
+                         <div th:each="ca: ${listaCategorias}" class="tab-pane fade" th:id="'v-tab'+${ca.idCategoria}" role="tabpanel" th:text="${ca.categoria}">
+                         </div>
+                     </div>
+                 </div>
+             </div>
+         </div>
+
+
+     </div>
+
+     <div th:include="usuario/templateUsuario.html::footer"></div>
+
+     <script th:src="@{node_modules/bootstrap/dist/js/bootstrap.js}"></script>
+     <script th:src="@{node_modules/mdb-ui-kit/js/mdb.min.js}"></script>
+     <script th:src="@{js/inicio.js}"></script>
+ </body>
+ </html>

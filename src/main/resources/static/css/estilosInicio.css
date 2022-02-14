@@ -1,0 +1,20 @@
+.navarInicio,.menu-login-registro{
+    background-color: #f99506;
+}
+.menu-login-registro > li > a:hover{
+    color: #f99506 !important;
+}
+.listProductos{
+    width: 20.6rem;
+}
+.listProductos > a:hover{
+    background-color: #00a65a !important;
+    color: #ffffff !important;
+}
+.btnProductos{
+    background-color: #e7d20c;
+    font-size: large;
+}
+.ancla-rigth{
+    margin-left: 9rem;
+}
